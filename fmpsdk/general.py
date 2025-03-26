@@ -1,7 +1,7 @@
 import typing
 
 from .settings import DEFAULT_LINE_PARAMETER
-from .url_methods import __return_json_v3, __validate_series_type, __validate_time_delta
+from .url_methods import __return_json_v3, __validate_time_delta, __return_json_stable
 
 
 def __quotes(apikey: str, value: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -100,7 +100,7 @@ def historical_price_full(
     if to_date:
         query_vars["to"] = to_date
 
-    res = __return_json_v3(path=path, query_vars=query_vars)
+    res = __return_json_stable(path=path, query_vars=query_vars)
 
     if res:
         return res.get("historicalStockList", res.get("historical", None))
