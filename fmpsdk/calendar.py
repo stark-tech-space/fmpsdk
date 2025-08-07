@@ -2,7 +2,7 @@ import typing
 import logging
 
 from .settings import DEFAULT_LIMIT
-from .url_methods import __return_json_v3, __return_json_v4
+from .url_methods import __return_json_v3, __return_json_v4, __return_json_stable
 
 
 def earning_calendar(
@@ -25,7 +25,7 @@ def earning_calendar(
         query_vars["from"] = from_date
     if to_date:
         query_vars["to"] = to_date
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_earning_calendar(
