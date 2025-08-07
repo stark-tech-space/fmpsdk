@@ -37,7 +37,7 @@ def company_profile(
     """
     path = f"profile/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def key_executives(
@@ -53,7 +53,7 @@ def key_executives(
     """
     path = f"key-executives/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def search(
@@ -76,7 +76,7 @@ def search(
         "query": query,
         "exchange": exchange,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def search_ticker(
@@ -99,7 +99,7 @@ def search_ticker(
         "query": query,
         "exchange": exchange,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_statement(
@@ -152,7 +152,7 @@ def income_statement(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def balance_sheet_statement(
@@ -183,7 +183,7 @@ def balance_sheet_statement(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def cash_flow_statement(
@@ -214,7 +214,7 @@ def cash_flow_statement(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_statement_symbol_lists(
@@ -229,7 +229,7 @@ def financial_statement_symbol_lists(
     """
     path = f"financial-statement-symbol-lists"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def income_statement_growth(
@@ -251,7 +251,7 @@ def income_statement_growth(
         "apikey": apikey,
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def balance_sheet_statement_growth(
@@ -271,7 +271,7 @@ def balance_sheet_statement_growth(
         "apikey": apikey,
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def cash_flow_statement_growth(
@@ -291,7 +291,7 @@ def cash_flow_statement_growth(
         "apikey": apikey,
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def income_statement_as_reported(
@@ -326,7 +326,7 @@ def income_statement_as_reported(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def balance_sheet_statement_as_reported(
@@ -361,7 +361,7 @@ def balance_sheet_statement_as_reported(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def cash_flow_statement_as_reported(
@@ -396,7 +396,7 @@ def cash_flow_statement_as_reported(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_statement_full_as_reported(
@@ -415,7 +415,7 @@ def financial_statement_full_as_reported(
     """
     path = f"financial-statement-full-as-reported/{symbol}"
     query_vars = {"apikey": apikey, "period": __validate_period(value=period)}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_ratios_ttm(
@@ -430,7 +430,7 @@ def financial_ratios_ttm(
     """
     path = f"ratios-ttm/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_ratios(
@@ -454,7 +454,7 @@ def financial_ratios(
         "limit": limit,
         "period": __validate_period(value=period),
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def enterprise_values(
@@ -478,7 +478,7 @@ def enterprise_values(
         "limit": limit,
         "period": __validate_period(value=period),
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def key_metrics_ttm(
@@ -496,7 +496,7 @@ def key_metrics_ttm(
     """
     path = f"key-metrics-ttm/{symbol}"
     query_vars = {"apikey": apikey, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def key_metrics(
@@ -520,7 +520,7 @@ def key_metrics(
         "limit": limit,
         "period": __validate_period(value=period),
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_growth(
@@ -544,7 +544,7 @@ def financial_growth(
         "limit": limit,
         "period": __validate_period(value=period),
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def rating(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -557,7 +557,7 @@ def rating(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]
     """
     path = f"rating/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_rating(
@@ -575,7 +575,7 @@ def historical_rating(
     """
     path = f"historical-rating/{symbol}"
     query_vars = {"apikey": apikey, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def discounted_cash_flow(
@@ -590,7 +590,7 @@ def discounted_cash_flow(
     """
     path = f"discounted-cash-flow/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_discounted_cash_flow(
@@ -614,7 +614,7 @@ def historical_discounted_cash_flow(
         "limit": limit,
         "period": __validate_period(value=period),
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_daily_discounted_cash_flow(
@@ -630,7 +630,7 @@ def historical_daily_discounted_cash_flow(
     """
     path = f"historical-daily-discounted-cash-flow/{symbol}"
     query_vars = {"apikey": apikey, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def market_capitalization(
@@ -645,7 +645,7 @@ def market_capitalization(
     """
     path = f"market-capitalization/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_market_capitalization(
@@ -661,7 +661,7 @@ def historical_market_capitalization(
     """
     path = f"historical-market-capitalization/{symbol}"
     query_vars = {"apikey": apikey, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def symbols_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -673,7 +673,7 @@ def symbols_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"stock/list"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def etf_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -687,7 +687,7 @@ def etf_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"etf/list"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def available_traded_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -701,7 +701,7 @@ def available_traded_list(apikey: str) -> typing.Optional[typing.List[typing.Dic
     """
     path = f"available-traded/list"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def stock_screener(
@@ -790,7 +790,7 @@ def stock_screener(
             query_vars["exchange"] = ",".join(exchange)
         else:
             query_vars["exchange"] = exchange
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def delisted_companies(
@@ -805,7 +805,7 @@ def delisted_companies(
     """
     path = f"delisted-companies"
     query_vars = {"apikey": apikey, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def stock_news(
@@ -838,7 +838,7 @@ def stock_news(
     if to_date:
         query_vars["to"] = to_date
 
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def earnings_surprises(
@@ -853,7 +853,7 @@ def earnings_surprises(
     """
     path = f"earnings-surprises/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def earning_call_transcript(
@@ -870,7 +870,7 @@ def earning_call_transcript(
     """
     path = f"earning_call_transcript/{symbol}"
     query_vars = {"apikey": apikey, "year": year, "quarter": quarter}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def batch_earning_call_transcript(
@@ -918,7 +918,7 @@ def sec_filings(
     """
     path = f"sec_filings/{symbol}"
     query_vars = {"apikey": apikey, "type": filing_type, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def press_releases(
@@ -934,7 +934,7 @@ def press_releases(
     """
     path = f"press-releases/{symbol}"
     query_vars = {"apikey": apikey, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def social_sentiments(
@@ -984,7 +984,7 @@ def analyst_estimates(
         "period": __validate_period(value=period),
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 def analyst_recommendations(
     apikey: str, symbol: str, limit: int = DEFAULT_LIMIT
@@ -1002,7 +1002,7 @@ def analyst_recommendations(
         "apikey": apikey,
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 def upgrades_downgrades(
     apikey: str, symbol: str
