@@ -671,7 +671,7 @@ def symbols_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     :param apikey: Your API key.
     :return: A list of dictionaries.
     """
-    path = f"stock/list"
+    path = f"stock-list"
     query_vars = {"apikey": apikey}
     return __return_json_stable(path=path, query_vars=query_vars)
 
