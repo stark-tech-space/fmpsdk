@@ -11,8 +11,8 @@ def technical_indicators(
     apikey: str,
     symbol: str,
     period: int = 10,
-    statistics_type: str = "SMA",
-    time_delta: str = "daily",
+    statistics_type: str = "sma",
+    time_delta: str = "1day",
     from_date: str = None,
     to_date: str = None,
 ) -> typing.Optional[typing.List[typing.Dict]]:
@@ -21,17 +21,28 @@ def technical_indicators(
 
     :param apikey: Your API key
     :param symbol: Company ticker
-    :param period: I don't know.  10 is my only example.
-    :param statistics_type: Not sure what this is.
-    :param time_delta: 'daily' or intraday: '1min' - '4hour'
+    :param period: period length for the indicator, e.g. 10, 20, 50, etc.
+    :param statistics_type: different types of statistics(lower case), e.g. 'sma', 'ema', 'rsi', etc.
+    :param time_delta: '1day' or intraday: '1min' - '4hour'
     :param from_date: Date to start from.  YYYY-MM-DD
+    :param to_date: Date to end at.  YYYY-MM-DD
     :return:
     """
-    path = f"technical_indicator/{__validate_technical_indicators_time_delta(time_delta)}/{symbol}"
+    if not symbol:
+        raise ValueError("symbol must be provided")
+    if period is None or int(period) <= 0:
+        raise ValueError("period must be a positive integer")
+    if not statistics_type:
+        raise ValueError("statistics_type must be provided")
+    
+    stat_type = __validate_statistics_type(statistics_type.lower())
+    path = f"technical-indicator/{stat_type}/"
+    
     query_vars = {
+        "symbol": symbol,
         "apikey": apikey,
-        "period": period,
-        "type": __validate_statistics_type(statistics_type),
+        "periodLength": period,
+        "timeframe": __validate_technical_indicators_time_delta(time_delta),
     }
 
     if from_date:
