@@ -90,7 +90,7 @@ def historical_price_full(
     """
     if type(symbol) is list:
         symbol = ",".join(symbol)
-    path = f"historical-price-full/{symbol}"
+    path = f"historical-price-eod/full/{symbol}"
     query_vars = {
         "apikey": apikey,
     }
