@@ -103,7 +103,8 @@ def historical_price_full(
 
     res = __return_json_stable(path=path, query_vars=query_vars)
 
-    if res:
-        return res.get("historicalStockList", res.get("historical", None))
-    else:
+    if isinstance(res, list):
         return res
+    else:
+        return None
+
