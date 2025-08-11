@@ -297,7 +297,7 @@ TECHNICAL_INDICATORS_TIME_DELTA_VALUES: typing.List = [
     "30min",
     "1hour",
     "4hour",
-    "daily",
+    "1day",
 ]
 SERIES_TYPE_VALUES: typing.List = [
     "line",
