@@ -36,7 +36,7 @@ def technical_indicators(
         raise ValueError("statistics_type must be provided")
     
     stat_type = __validate_statistics_type(statistics_type.lower())
-    path = f"technical-indicator/{stat_type}/"
+    path = f"technical-indicators/{stat_type}/"
     
     query_vars = {
         "symbol": symbol,
