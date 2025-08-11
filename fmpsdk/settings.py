@@ -311,7 +311,7 @@ STATISTICS_TYPE_VALUES: typing.List = [
     "williams",
     "rsi",
     "adx",
-    "standardDeviation",
+    "standarddeviation",
 ]
 
 FINANCIAL_STATEMENT_FILENAME: str = "financial_statement.zip"
