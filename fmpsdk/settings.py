@@ -279,6 +279,11 @@ SECTOR_VALUES: typing.List = [
     "Diversified Consumer Services",
 ]
 PERIOD_VALUES: typing.List = [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "FY",
     "annual",
     "quarter",
 ]
