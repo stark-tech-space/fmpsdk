@@ -10,6 +10,7 @@ from .calendar import (
     dividend_calendar,
     earning_calendar,
     earning_calendar_confirmed,
+    earning_calendar_legacy,
     economic_calendar,
     historical_earning_calendar,
     ipo_calendar,
