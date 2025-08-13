@@ -202,6 +202,7 @@ __all__ = [
     "press_releases",
     "earning_calendar",
     "earning_calendar_confirmed",
+    "earning_calendar_legacy",
     "historical_earning_calendar",
     "ipo_calendar",
     "ipo_calendar_confirmed",
