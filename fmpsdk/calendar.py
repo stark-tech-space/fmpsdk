@@ -17,7 +17,7 @@ def earning_calendar(
     :param to_date: 'YYYY:MM:DD'
     :return: A list of dictionaries.
     """
-    path = f"earning_calendar"
+    path = f"earnings-calendar"
     query_vars = {
         "apikey": apikey,
     }
