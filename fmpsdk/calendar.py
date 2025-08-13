@@ -9,7 +9,7 @@ def earning_calendar(
     apikey: str, from_date: str = None, to_date: str = None
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
-    Query FMP /earning_calendar/ API.
+    Query stable FMP /earning-calendar/ API.
 
     Note: Between the "from" and "to" parameters the maximum time interval can be 3 months.
     :param apikey: Your API key.
@@ -26,6 +26,28 @@ def earning_calendar(
     if to_date:
         query_vars["to"] = to_date
     return __return_json_stable(path=path, query_vars=query_vars)
+
+def earning_calendar_legacy(
+    apikey: str, from_date: str = None, to_date: str = None
+) -> typing.Optional[typing.List[typing.Dict]]:
+    """
+    Query legacy FMP /earning_calendar/ API.
+
+    Note: Between the "from" and "to" parameters the maximum time interval can be 3 months.
+    :param apikey: Your API key.
+    :param from_date: 'YYYY:MM:DD'
+    :param to_date: 'YYYY:MM:DD'
+    :return: A list of dictionaries.
+    """
+    path = f"earning_calendar"
+    query_vars = {
+        "apikey": apikey,
+    }
+    if from_date:
+        query_vars["from"] = from_date
+    if to_date:
+        query_vars["to"] = to_date
+    return __return_json_v3(path=path, query_vars=query_vars)
 
 
 def historical_earning_calendar(
