@@ -17,7 +17,7 @@ def earning_calendar(
     :param to_date: 'YYYY:MM:DD'
     :return: A list of dictionaries.
     """
-    path = f"earnings-calendar"
+    path = "earnings-calendar"
     query_vars = {
         "apikey": apikey,
     }
@@ -26,6 +26,7 @@ def earning_calendar(
     if to_date:
         query_vars["to"] = to_date
     return __return_json_stable(path=path, query_vars=query_vars)
+
 
 def earning_calendar_legacy(
     apikey: str, from_date: str = None, to_date: str = None
@@ -39,7 +40,7 @@ def earning_calendar_legacy(
     :param to_date: 'YYYY:MM:DD'
     :return: A list of dictionaries.
     """
-    path = f"earning_calendar"
+    path = "earning_calendar"
     query_vars = {
         "apikey": apikey,
     }
@@ -83,7 +84,7 @@ def ipo_calendar(
     :param to_date: 'YYYY:MM:DD'
     :return: A list of dictionaries.
     """
-    path = f"ipo_calendar"
+    path = "ipo_calendar"
     query_vars = {
         "apikey": apikey,
     }
@@ -106,7 +107,7 @@ def stock_split_calendar(
     :param to_date: 'YYYY:MM:DD'
     :return: A list of dictionaries.
     """
-    path = f"stock_split_calendar"
+    path = "stock_split_calendar"
     query_vars = {
         "apikey": apikey,
     }
@@ -129,7 +130,7 @@ def dividend_calendar(
     :param to_date: 'YYYY:MM:DD'
     :return: A list of dictionaries.
     """
-    path = f"stock_dividend_calendar"
+    path = "stock_dividend_calendar"
     query_vars = {
         "apikey": apikey,
     }
@@ -152,7 +153,7 @@ def economic_calendar(
     :param to_date: 'YYYY:MM:DD'
     :return: A list of dictionaries.
     """
-    path = f"economic_calendar"
+    path = "economic_calendar"
     query_vars = {
         "apikey": apikey,
     }
@@ -198,13 +199,39 @@ def earning_calendar_confirmed(
     """
     path = "earning-calendar-confirmed"
     query_vars = {"apikey": apikey, "limit": limit}
-    
+
     if from_date:
         query_vars["from"] = from_date
     if to_date:
         query_vars["to"] = to_date
-    
+
     return __return_json_v4(path=path, query_vars=query_vars)
+
+
+def earning_report(
+    apikey: str, symbol: str, limit: int = DEFAULT_LIMIT
+) -> typing.Optional[typing.List[typing.Dict]]:
+    """
+    Query FMP /earnings API.
+
+    Retrieve in-depth earnings information for a specific stock symbol,
+    including earnings report dates, EPS estimates, and revenue projections.
+
+    Endpoint:
+        https://financialmodelingprep.com/stable/earnings?symbol=AAPL
+
+    :param apikey: Your API key.
+    :param symbol: Company ticker symbol (e.g., 'AAPL').
+    :param limit: Number of records to return.
+    :return: A list of dictionaries containing earnings report data.
+    """
+    path = "earnings"
+    query_vars = {
+        "apikey": apikey,
+        "symbol": symbol,
+        "limit": limit,
+    }
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def ipo_calendar_confirmed(
@@ -238,13 +265,11 @@ def ipo_calendar_confirmed(
              - industry: Company industry
     """
     if not from_date or not to_date:
-        logging.warning("Both from_date and to_date are required for IPO calendar confirmed request.")
+        logging.warning(
+            "Both from_date and to_date are required for IPO calendar confirmed request."
+        )
         return None
-    
+
     path = "ipo-calendar-confirmed"
-    query_vars = {
-        "apikey": apikey,
-        "from": from_date,
-        "to": to_date
-    }
+    query_vars = {"apikey": apikey, "from": from_date, "to": to_date}
     return __return_json_v4(path=path, query_vars=query_vars)
