@@ -5,9 +5,17 @@ from .alternative_data import (
     commitment_of_traders_report_analysis,
     commitment_of_traders_report_list,
 )
-from .bulk import bulk_historical_eod, bulk_profiles, batch_quote, batch_pre_post_market_trade, scores_bulk, upgrades_downgrades_consensus_bulk
+from .bulk import (
+    bulk_historical_eod,
+    bulk_profiles,
+    batch_quote,
+    batch_pre_post_market_trade,
+    scores_bulk,
+    upgrades_downgrades_consensus_bulk,
+)
 from .calendar import (
     dividend_calendar,
+    earning_report,
     earning_calendar,
     earning_calendar_confirmed,
     earning_calendar_legacy,
@@ -197,9 +205,10 @@ __all__ = [
     "stock_screener",
     "delisted_companies",
     "stock_news",
-    "social_sentiments" "earnings_surprises",
+    "social_sentimentsearnings_surprises",
     "sec_filings",
     "press_releases",
+    "earning_report",
     "earning_calendar",
     "earning_calendar_confirmed",
     "earning_calendar_legacy",
